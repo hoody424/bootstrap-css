@@ -1,0 +1,14 @@
+version: "2.4"
+
+services:
+  gusit:
+    container_name: gusit-backend
+    restart: always
+    build: 
+      context: .
+    entrypoint:
+      - "export FLASK_APP=/opt/gusit/app.py && export LC_ALL=C.UTF-8 && export LANG=C.UTF-8 &&flask run -p 80 -h 0.0.0.0"
+    volumes: 
+      - "/c/work-priv/data/gusit/:/opt/gusit/"
+    ports:
+      - 84:80
